@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(java -version)",
+      "Bash(javac -version)",
+      "Bash(mysql --version)",
+      "Read(//c/Program Files/MySQL/**)",
+      "Read(//e//**)",
+      "Bash(curl *)",
+      "Bash(mkdir -p \"E:/tomcat\")",
+      "Bash(unzip -o /tmp/apache-tomcat-9.zip -d \"E:/tomcat/\")",
+      "Bash(mysql *)",
+      "Read(//tmp/**)",
+      "Bash(jar cfm *)",
+      "Bash('C:/Program Files/Java/jdk-23/bin/jar' cfm E:/document/chorm/web-master/web-master/web-core/build/web-core.jar E:/document/chorm/web-master/web-master/web-core/src/META-INF/MANIFEST.MF .)",
+      "Bash(rm -rf \"E:/tomcat\")",
+      "Bash(rm -rf E:/tomcat/apache-tomcat-9.0.118/webapps/ROOT)",
+      "Bash(cp -r E:/document/chorm/web-master/web-master/web-pc/WebContent E:/tomcat/apache-tomcat-9.0.118/webapps/ROOT)",
+      "Bash(mkdir -p E:/tomcat/apache-tomcat-9.0.118/webapps/config)",
+      "Bash(cp E:/document/chorm/web-master/web-master/web-pc/config/mysql_connect_info.properties E:/tomcat/apache-tomcat-9.0.118/webapps/config/)",
+      "Bash(cp E:/document/chorm/web-master/web-master/web-pc/config/config.properties E:/tomcat/apache-tomcat-9.0.118/webapps/config/)",
+      "Bash(cp E:/document/chorm/web-master/web-master/web-pc/config/log4j2.xml E:/tomcat/apache-tomcat-9.0.118/webapps/config/)",
+      "Bash(export JAVA_HOME=\"C:/Program Files/Java/jdk-23\")",
+      "Bash(export JRE_HOME=\"$JAVA_HOME\")",
+      "Bash(\"E:/tomcat/apache-tomcat-9.0.118/bin/startup.sh\")",
+      "Bash(\"E:/tomcat/apache-tomcat-9.0.118/bin/shutdown.sh\")",
+      "Bash(powershell.exe *)",
+      "Bash(cp -f \"E:/document/chorm/web-master/web-master/web-core/build/web-core.jar\" \"E:/document/chorm/web-master/web-master/web-pc/WebContent/WEB-INF/lib/web-core.jar\")",
+      "Bash(cp -f \"E:/document/chorm/web-master/web-master/web-core/build/web-core.jar\" \"E:/tomcat/apache-tomcat-9.0.118/webapps/ROOT/WEB-INF/lib/web-core.jar\")",
+      "Bash(robocopy \"E:/document/chorm/web-master/web-master/web-pc/WebContent/\" \"E:/tomcat/apache-tomcat-9.0.118/webapps/ROOT/\" /MIR /XD \"WEB-INF\\\\lib\" /NJH /NJS /NP /NDL /NS)",
+      "Bash(xargs stat -c \"%Y %n\")"
+    ]
+  }
+}
