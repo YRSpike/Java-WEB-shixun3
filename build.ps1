@@ -13,12 +13,34 @@ param([string]$action = "build")
 
 $ErrorActionPreference = "Stop"
 
-# ---- Path Config ----
-$PROJECT_ROOT = "E:\document\chorm\web-master\web-master"
+# ---- Path Config (auto-detect) ----
+$PROJECT_ROOT = $PSScriptRoot
 $WEB_CORE    = "$PROJECT_ROOT\web-core"
 $WEB_PC      = "$PROJECT_ROOT\web-pc"
-$TOMCAT      = "E:\tomcat\apache-tomcat-9.0.118"
-$JAVA_HOME   = "C:\Program Files\Java\jdk-23"
+
+# JAVA_HOME: use env var if set, else auto-detect from registry
+if (-not $env:JAVA_HOME) {
+    $jdkDirs = @(
+        "C:\Program Files\Java\jdk-23",
+        "C:\Program Files\Java\jdk-21",
+        "C:\Program Files\Java\jdk-17"
+    )
+    foreach ($d in $jdkDirs) { if (Test-Path $d) { $env:JAVA_HOME = $d; break } }
+    if (-not $env:JAVA_HOME) { throw "JAVA_HOME not set and no JDK found in default paths. Please set JAVA_HOME environment variable." }
+}
+$JAVA_HOME = $env:JAVA_HOME
+
+# TOMCAT: use env var if set, else check common paths
+if (-not $env:CATALINA_HOME) {
+    $tomcatDirs = @(
+        "E:\tomcat\apache-tomcat-9.0.118",
+        "C:\tomcat\apache-tomcat-9.0.118",
+        "C:\Program Files\Apache Software Foundation\Tomcat 9.0"
+    )
+    foreach ($d in $tomcatDirs) { if (Test-Path $d) { $env:CATALINA_HOME = $d; break } }
+    if (-not $env:CATALINA_HOME) { throw "CATALINA_HOME not set and Tomcat not found in default paths. Please set CATALINA_HOME environment variable." }
+}
+$TOMCAT = $env:CATALINA_HOME
 
 $ROOT_DIR      = "$TOMCAT\webapps\ROOT"
 $TOMCAT_PORT   = 8080

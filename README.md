@@ -25,18 +25,29 @@
 
 - 1、下载项目源码或者打包好的war包
 
-- 2、按照docs文件夹里面的数据库配置步骤，导入脚本，需提前安装MySQL数据库和创建一个数据库(自定义名称，如web)
-    - 按照`docs/数据库部署文件夹`里面的步骤依次运行脚本即可
-    
-- 3、将项目导入Eclipse/IDEA，修改web-pc和web-mobile 下的config/mysql_connect_info.properties文件里的数据库配置
-    - 如果是下载的zip压缩包，则不用导入，直接解压，得到`config`文件夹和war包，并修改db_connect_info.properties数据库配置
+- 2、安装MySQL数据库（推荐8.0），创建一个数据库(自定义名称，如`web_test`)
+    - 创建数据库用户并授权（MySQL 8.0 需指定认证插件）：
+    ```sql
+    CREATE USER IF NOT EXISTS 'web_user'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+    GRANT ALL PRIVILEGES ON web_test.* TO 'web_user'@'localhost';
+    FLUSH PRIVILEGES;
+    ```
+    > **注意：** 项目使用的 mysql-connector-java 驱动版本较旧，不支持 MySQL 8.0 默认的 `caching_sha2_password` 认证插件，必须使用 `mysql_native_password`。
 
-- 4、web-core打成jar包，Idea可参考https://hacpai.com/article/1571129510972 。然后放到pc和mobile的WebContent\WEB-INF\lib目录下
+- 3、按照`docs/数据库部署`文件夹里面的步骤依次运行SQL脚本（先建表，再导入初始数据）
 
-- 5、打包web-pc/web-mobile成war包，Idea可参考https://blog.csdn.net/github_38336924/article/details/82422888?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param
+- 4、修改 `web-pc/config/mysql_connect_info.properties` 和 `web-mobile/config/mysql_connect_info.properties` 中的数据库连接信息（URL、数据库名、用户名、密码）
 
-- 6、放在tomcat等容器下运行。并将config文件夹放在web目录的同级目录（和web项目在同一个文件夹下）
+- 5、修改 `web-pc/config/config.properties` 和 `web-mobile/config/config.properties` 中的邮箱配置（用于站内信功能）
 
-- 7、访问 localhost:8080即可（默认配置已去掉项目名称）
+- 6、web-core打成jar包，Idea可参考 https://hacpai.com/article/1571129510972 ，然后放到 `web-pc/WebContent/WEB-INF/lib/` 和 `web-mobile/WebContent/WEB-INF/lib/` 目录下
 
-- 8、使用体验账户登录，用户名：husen，密码：admin123
+- 7、打包web-pc/web-mobile成war包，放在Tomcat等容器下运行
+    - 并将 `config` 文件夹复制到 `webapps/` 目录下（与你的web项目同级，即 `webapps/config/`）
+    - 将war包部署为ROOT应用（去掉项目名称），或直接放到 `webapps/` 目录
+
+- 8、启动Tomcat，访问 http://localhost:8080 即可
+
+- 9、体验账户：用户名 `husen`，密码 `123123`
+
+> 更详细的配置说明请参考 **项目配置运行指南.md**
