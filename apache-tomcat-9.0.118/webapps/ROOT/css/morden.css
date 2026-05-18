@@ -1,0 +1,53 @@
+/* ===== 全局重置 ===== */
+
+body {
+
+    background: #020617 !important;
+
+    color: white !important;
+
+    font-family:
+    Inter,
+    "PingFang SC",
+    sans-serif !important;
+
+    overflow-x: hidden;
+}
+
+/* ===== 去除 Bootstrap 老边框 ===== */
+
+.panel,
+.well,
+.thumbnail,
+.navbar,
+.form-control,
+.btn {
+
+    border-radius: 16px !important;
+
+    box-shadow: none !important;
+}
+
+/* ===== 链接 ===== */
+
+a {
+
+    transition: all .3s ease;
+}
+
+/* ===== 卡片统一 ===== */
+
+.sidebar-module,
+.article-box-div,
+.panel {
+
+    background: rgba(255,255,255,0.05) !important;
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 24px;
+
+    padding: 24px;
+}

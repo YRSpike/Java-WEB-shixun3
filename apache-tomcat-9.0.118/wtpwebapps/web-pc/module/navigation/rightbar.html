@@ -1,0 +1,399 @@
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+<style>
+
+/* ===== 右侧栏 ===== */
+
+#modern-rightbar {
+
+	position: fixed;
+
+	right: 25px;
+
+	top: 110px;
+
+	width: 320px;
+
+	z-index: 999;
+}
+
+/* ===== 卡片模块 ===== */
+
+.right-card {
+
+	background: rgba(255,255,255,0.05);
+
+	backdrop-filter: blur(18px);
+
+	border: 1px solid rgba(255,255,255,0.08);
+
+	border-radius: 24px;
+
+	padding: 28px;
+
+	margin-bottom: 25px;
+
+	box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+
+	transition: 0.35s;
+}
+
+.right-card:hover {
+
+	transform: translateY(-5px);
+
+	box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+}
+
+/* ===== 标题 ===== */
+
+.right-title {
+
+	font-size: 20px;
+
+	font-weight: bold;
+
+	color: white;
+
+	margin-bottom: 22px;
+
+	display: flex;
+
+	align-items: center;
+}
+
+.right-title i {
+
+	margin-right: 10px;
+
+	color: #38bdf8;
+}
+
+/* ===== 关于 ===== */
+
+.about-text {
+
+	color: #cbd5e1;
+
+	line-height: 1.9;
+
+	font-size: 15px;
+}
+
+/* ===== 技术栈 ===== */
+
+.stack-box {
+
+	display: flex;
+
+	flex-wrap: wrap;
+
+	gap: 12px;
+
+	margin-top: 20px;
+}
+
+.stack-item {
+
+	padding: 10px 16px;
+
+	border-radius: 30px;
+
+	background: rgba(255,255,255,0.05);
+
+	color: #e2e8f0;
+
+	font-size: 13px;
+
+	transition: 0.3s;
+}
+
+.stack-item:hover {
+
+	background: linear-gradient(90deg,#38bdf8,#6366f1);
+
+	transform: translateY(-2px);
+
+	color: white;
+}
+
+/* ===== 社交链接 ===== */
+
+.social-list {
+
+	list-style: none;
+
+	padding: 0;
+
+	margin: 0;
+}
+
+.social-list li {
+
+	margin-bottom: 14px;
+}
+
+.social-list a {
+
+	display: flex;
+
+	align-items: center;
+
+	padding: 14px 18px;
+
+	border-radius: 16px;
+
+	text-decoration: none;
+
+	background: rgba(255,255,255,0.04);
+
+	color: #cbd5e1;
+
+	transition: 0.3s;
+}
+
+.social-list a:hover {
+
+	background: linear-gradient(90deg,#0ea5e9,#6366f1);
+
+	color: white;
+
+	transform: translateX(5px);
+}
+
+.social-list i {
+
+	font-size: 18px;
+
+	width: 26px;
+}
+
+/* ===== 数据统计 ===== */
+
+.stats-grid {
+
+	display: grid;
+
+	grid-template-columns: repeat(2,1fr);
+
+	gap: 15px;
+}
+
+.stats-item {
+
+	padding: 18px;
+
+	border-radius: 18px;
+
+	text-align: center;
+
+	background: rgba(255,255,255,0.04);
+}
+
+.stats-item h3 {
+
+	font-size: 28px;
+
+	font-weight: bold;
+
+	color: white;
+
+	margin-bottom: 8px;
+}
+
+.stats-item p {
+
+	font-size: 13px;
+
+	color: #94a3b8;
+
+	margin: 0;
+}
+
+/* ===== 响应式 ===== */
+
+@media screen and (max-width: 1500px) {
+
+	#modern-rightbar {
+
+		display: none;
+	}
+}
+
+</style>
+
+<!-- ===== 右侧栏 ===== -->
+
+<div id="modern-rightbar">
+
+	<!-- 关于站点 -->
+
+	<div class="right-card">
+
+		<div class="right-title">
+
+			<i class="fa fa-rocket"></i>
+
+			关于本站
+
+		</div>
+
+		<div class="about-text">
+
+			NovaTech 是一个专注于现代开发技术的个人技术社区，
+			内容涵盖 Java、SpringBoot、Vue3、人工智能、
+			微服务架构以及高性能前端开发。
+
+			<br><br>
+
+			在这里你可以获取：
+
+			<br><br>
+
+			✓ 企业级项目实战  
+			<br>
+			✓ AI 开发经验  
+			<br>
+			✓ 开源项目源码  
+			<br>
+			✓ 技术成长路线  
+			<br>
+			✓ 全栈开发教程
+
+		</div>
+
+		<!-- 技术栈 -->
+
+		<div class="stack-box">
+
+			<div class="stack-item">SpringBoot</div>
+
+			<div class="stack-item">Vue3</div>
+
+			<div class="stack-item">MySQL</div>
+
+			<div class="stack-item">Redis</div>
+
+			<div class="stack-item">Docker</div>
+
+			<div class="stack-item">OpenAI</div>
+
+			<div class="stack-item">JWT</div>
+
+			<div class="stack-item">Vite</div>
+
+		</div>
+
+	</div>
+
+	<!-- 数据统计 -->
+
+	<div class="right-card">
+
+		<div class="right-title">
+
+			<i class="fa fa-bar-chart"></i>
+
+			站点数据
+
+		</div>
+
+		<div class="stats-grid">
+
+			<div class="stats-item">
+
+				<h3>126</h3>
+
+				<p>技术文章</p>
+
+			</div>
+
+			<div class="stats-item">
+
+				<h3>38</h3>
+
+				<p>开源项目</p>
+
+			</div>
+
+			<div class="stats-item">
+
+				<h3>12k</h3>
+
+				<p>总访问量</p>
+
+			</div>
+
+			<div class="stats-item">
+
+				<h3>2.6k</h3>
+
+				<p>开发者用户</p>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- 社交主页 -->
+
+	<div class="right-card">
+
+		<div class="right-title">
+
+			<i class="fa fa-link"></i>
+
+			开发者社区
+
+		</div>
+
+		<ul class="social-list">
+
+			<li>
+				<a href="#" target="_blank">
+
+					<i class="fa fa-github"></i>
+
+					GitHub 开源仓库
+
+				</a>
+			</li>
+
+			<li>
+				<a href="#" target="_blank">
+
+					<i class="fa fa-code"></i>
+
+					CSDN 技术专栏
+
+				</a>
+			</li>
+
+			<li>
+				<a href="#" target="_blank">
+
+					<i class="fa fa-youtube-play"></i>
+
+					技术视频频道
+
+				</a>
+			</li>
+
+			<li>
+				<a href="#" target="_blank">
+
+					<i class="fa fa-comments"></i>
+
+					开发者交流群
+
+				</a>
+			</li>
+
+		</ul>
+
+	</div>
+
+</div>

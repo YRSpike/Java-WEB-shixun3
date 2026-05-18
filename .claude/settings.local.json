@@ -3,7 +3,9 @@
     "allow": [
       "Bash(mkdir -p \"E:/document/chorm/web-master/web-master/web-core/.settings\")",
       "Bash(mkdir -p \"E:/document/chorm/web-master/web-master/web-pc/.settings\")",
-      "Bash(mkdir -p \"E:/document/chorm/web-master/web-master/web-mobile/.settings\")"
+      "Bash(mkdir -p \"E:/document/chorm/web-master/web-master/web-mobile/.settings\")",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }
