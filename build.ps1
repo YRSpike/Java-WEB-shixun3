@@ -33,6 +33,7 @@ $JAVA_HOME = $env:JAVA_HOME
 # TOMCAT: use env var if set, else check common paths
 if (-not $env:CATALINA_HOME) {
     $tomcatDirs = @(
+        "$PROJECT_ROOT\apache-tomcat-9.0.118",
         "E:\tomcat\apache-tomcat-9.0.118",
         "C:\tomcat\apache-tomcat-9.0.118",
         "C:\Program Files\Apache Software Foundation\Tomcat 9.0"
